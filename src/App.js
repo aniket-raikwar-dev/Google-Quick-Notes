@@ -23,8 +23,8 @@ const customStyles = {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
   },
   content: {
-    width: "400px",
-    height: "400px",
+    width: "500px",
+    height: "500px",
     top: "47%",
     left: "50%",
     right: "auto",
@@ -212,7 +212,7 @@ function App() {
                           </div>
                         </div>
                         <h4 className="card-tagline">{note.tagline}</h4>
-                        <p>Loving the things are you like most when needed.</p>
+                        <p>{note.body}</p>
                       </div>
                     );
                   })}
@@ -247,7 +247,7 @@ function App() {
                     </div>
                   </div>
                   <h4 className="card-tagline">{note.tagline}</h4>
-                  <p>Loving the things are you like most when needed.</p>
+                  <p>{note.body}</p>
                 </div>
               ))}
             </div>
