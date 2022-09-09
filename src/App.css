@@ -1,38 +1,306 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  height: 12vh;
+  background-color: black;
+  border-bottom: 0.5px solid rgb(63, 63, 63);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.navbar-header, .sidebar-header, .sidebar-header-pinned {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.sidebar-header, .sidebar-header-pinned {
+  padding-left: 60px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: rgb(37, 37, 37);
+}
+.sidebar-header {
+  background-color: transparent;
+}
+.icon{
+  width: 16px;
+}
+.note-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgb(30, 150, 88);
+  padding: 4.5px;
+}
+.sidebar-icon {
+  width: 14px;
+}
+.bulb-icon {
+  width: 16px;
+}
+.heading, .sidebar-heading {
+  font-size: 12px;
+  margin-left: 12px;
+  margin-top: 2px;
+  color: white;
+  font-weight: 400;
+}
+.sidebar-heading {
+  margin-left: 20px;
+}
+.user {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(23, 156, 90);
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.container {
+  background-color: black;
+  display: flex;
+}
+.sidebar {
+  width: 22%;
+  height: 88vh;
+  border-right: 0.5px solid rgb(63, 63, 63);
+  position: relative;
+  overflow:hidden
+}
+
+.note-container, .scroll {
+  width: 78%;
+  padding-left: 30px;
+  padding-right: 60px;
+}
+
+.scroll {
+  padding-bottom: 80px;
+  height: 100vh;
+}
+
+.btn-create-note, .btn-save, .btn-close {
+  padding: 7px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  float: right;
+  outline: none;
+  font-size: 10px;
+  /* text-transform: uppercase; */
+  border: none;
+  border-radius: 2px;
+}
+.btn-create-note:hover {
+  background-color: rgb(23, 156, 90);
+  /* color: white; */
+  color: rgb(16, 16, 16);
+  color: black;
+  font-weight: 400;
+  transition: all 0.2s ease-in;
+}
+
+.modal-title {
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.input-field, .text-area {
+  width: 100%;
+  outline: none;
+  border: none;
+  border: 0.5px solid rgb(63, 63, 63);
+  background-color: transparent;
+  margin-top: 25px;
+  padding: 5px;
+  color: white;
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+}
+
+.text-area {
+  border: 1px solid rgb(63, 63, 63);
+}
+.btn-box {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: 40px;
+}
+
+.btn-save {
+  background-color: rgb(23, 156, 90);
+  color: black;
+  width: 80px;
+  font-size: 10.5px;
+  font-weight: 400;
+}
+.btn-save:hover {
+  color: white;
+  transition: all 0.2s ease-in;
+  background-color: rgb(10, 103, 55)
+}
+.btn-close {
+  background-color: rgb(246, 64, 97);
+  width: 80px;
+  margin-right: 10px;
+  font-size: 10.5px;
+}
+.btn-close:hover {
+  color: white;
+  transition: all 0.2s ease-in;
+  background-color: rgb(182, 22, 51);
+}
+
+.notes-box, .pinned-notes-box {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 22px;
+  grid-auto-rows: minmax(122px, auto);
+}
+.pinned-notes-box {
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+.pinned-notes-heading, .other-notes-heading {
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 50px;
+}
+.other-notes-heading {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.note-card {
+  width: 200px;
+  height: 100%;
+  background-color: rgb(23, 156, 90);
+  border-radius: 2px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.note-card:hover .card-title  {
+  transition: all 0.2s ease-in;
+  color: black;
+}
+.note-card:hover .card-tagline {
+  color: white;
+  font-size: 9.5px;
+  background-color: rgb(23, 156, 90);
+
+}
+.note-card:hover {
+  background-color: whitesmoke;
+}
+
+.card-title {
+  font-weight: 400;
+  font-size: 13.5px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.card-tagline {
+  font-weight: 300;
+  width: max-content;
+  color: rgb(10, 103, 55);
+  font-size: 9.5px;
+  background-color: white;
+  padding: 1px 5px;
+  letter-spacing: 0.3px;
+  border-radius: 2px;
+  margin-top: 17px;
+}
+.note-card p {
+  color: black;
+  font-size: 11px;
+  margin-top: 8px; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-btn {
+  display: flex;
+  float: right;
+}
+
+.card-trash-icon, .card-pinned-icon {
+  cursor: pointer;
+  width: 14px;
+  background: rgb(23, 115, 68);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  padding: 4.5px;
+}
+.black {
+  background-color: black;
+}
+
+.card-pinned-icon {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.card-pinned-icon:hover, .card-trash-icon:hover {
+  background-color: black;
+  transition: all 0.2s ease-in;
+}
+
+.black:hover {
+  background-color: rgb(229, 59, 84);
+}
+
+.pagination{
+  /* background-color: red; */
+  position: fixed;
+  width: 70%;
+  bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationBtns {
+   height: 40px;
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.paginationBtns a {
+  padding: 5px 10px;
+  letter-spacing: 0.5px;
+  margin: 5px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 300;
+  border: none;
+  color: black;
+  cursor: pointer;
+  background-color: white;
+}
+.paginationBtns a:hover {
+  background-color: whitesmoke;
+  color:rgb(23, 115, 68);
+  transition: all 0.2s ease-in;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: rgb(23, 156, 90);
 }
