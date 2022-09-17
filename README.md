@@ -12,9 +12,8 @@
 4. User can delete the notes from pinned and other notes.
 5. Best UI using Pure CSS.
 6. Data is stored into the Firebase Firestore Database.
+7. It also have pagination, so user can go from one page to another.
+8. On each page only 6 notes is shows rest are in another page.
 
-### Using Best Practices
-##### Create Small Component
-##### Better Approach
-##### Optimize Code 
+
 
